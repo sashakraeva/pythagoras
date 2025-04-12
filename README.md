@@ -1,40 +1,62 @@
 # 🧠 Predicting the Hypotenuse with Machine Learning
 
-This project uses machine learning to predict the hypotenuse (c) of a right-angled triangle using sides a and b, based on Pythagoras' Theorem. It's part of the **ML for Robotic Fabrication** course.
+This project uses machine learning to predict the hypotenuse (c) of a right-angled triangle using sides a and b, based on Pythagoras' Theorem. It's part of the **Software III - MRAC01** course.
 
 ---
 
 ## 🎯 Objective
 
-Approximate the mathematical formula:
+### 1 - Approximate the mathematical formula
 \[
 c = \sqrt{a^2 + b^2}
 \]
-using supervised machine learning.
+
+using shallow machine learning.
+
+
+### 2 - Compare Linear Regression with MLP Regressor
+
+Pythagoras' Theorem is nonlinear due to the square root function.
+
+The comparison showed that:
+
+Linear Regression:
+- Linear Regression can only model straight-line relationships between input and output.
+- As a result, it tries to approximate the curved function with a flat plane, leading to higher error.
+
+MLP Regressor:
+- The MLP Regressor (Multi-Layer Perceptron) is a type of neural network that can model complex, nonlinear relationships.
+- It learns the curvature of the √(a² + b²) function more effectively.
+- This results in very low MSE and perfect R², meaning it captured the relationship almost perfectly.
+
 
 ---
 
-## 🗂️ Folder Structure
+## Folder Structure
 
 ```
 pythagoras/
 ├── data/
 │   └── triangle_dataset.csv         # Generated dataset
 ├── models/
-│   └── linear_regression_model.pkl  # Trained ML model
+│   ├── linear_regression_model.pkl  # Trained Linear Regression 
+│   └── mlp_model.pkl                # Trained MLPRegressor 
 ├── results/
-│   └── pred_vs_true_01.png          # Visualization of predictions after 1st training
-├── src/
+│   ├── pred_vs_true_01.png          # Visualization of predictions after linear regression training
+│   └── pred_vs_true_mlp.png         # Vizualisation of predictions after mlpregressor training
+├── src/                            
 │   ├── generate_dataset.py          # Create synthetic dataset for triangle_dataset.csv 
-│   ├── train_model.py               # Train the ML model
-│   └── evaluate_model.py            # Evaluate and visualize predictions
+│   ├── train.py                     # Train Linear Regression
+│   ├── evaluate.py                  # Evaluate and visualize predictions of Linear Regression
+│   ├── mlp_train.py                 # Train mlpregressor
+│   └── mlp_evaluate.py              # Evaluate and visualize predictions of mlpregressor
 ├── requirements.txt                 # Python dependencies
 └── README.md                        
 ```
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 Install required packages:
 
@@ -44,7 +66,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📊 Workflow
+## Workflow
 
 ### 1. Generate Dataset
 
@@ -76,34 +98,36 @@ Prints metrics and saves the prediction plot to `results/pred_vs_true.png`.
 
 ---
 
-## 📈 Results
+## Results
 
-### 🔍 Evaluation Metrics
+### Linear Regression
 | Metric | Value  |
 |--------|------------------|
 | MSE    | 36.2317          |
 | R²     | 0.9567          |
 
-The model performs extremely well because it’s learning a deterministic mathematical relationship.
+
+### MLP Regressor
+| Metric | Value   |
+|--------|---------|
+| MSE    | 0.0213  |
+| R²     | 1.0000  |
 
 ---
+---
 
-### 📷 Prediction Plot
+### Prediction Plot
 
-This plot shows predicted vs true hypotenuse values:
+**Linear Regression**
 
 ![Prediction vs True](results/pred_vs_true_01.png)
 
----
 
-## 🚀 Next Steps
+**MLP Regressor**
 
-- Add Gaussian noise to `a` and `b` to simulate sensor error.
-- Train a neural network regressor (e.g., `MLPRegressor`).
-- Deploy as a simple web tool using Streamlit or Gradio.
+![MLP Prediction](results/mlp_pred_vs_true.png)
 
 ---
 
-## ✍️ Author
 
-Developed as part of an individual assignment for **ML for Robotic Fabrication**.
+
