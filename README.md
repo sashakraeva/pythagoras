@@ -1,10 +1,10 @@
-# 🧠 Predicting the Hypotenuse with Machine Learning
+# Predicting the Hypotenuse with Shallow Learning
 
 This project uses machine learning to predict the hypotenuse (c) of a right-angled triangle using sides a and b, based on Pythagoras' Theorem. It's part of the **Software III - MRAC01** course.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 ### 1 - Approximate the mathematical formula
 \[
@@ -113,7 +113,7 @@ Prints metrics and saves the prediction plot to `results/pred_vs_true.png`.
 | MSE    | 0.0213  |
 | R²     | 1.0000  |
 
----
+
 ---
 
 ### Prediction Plot
@@ -125,9 +125,31 @@ Prints metrics and saves the prediction plot to `results/pred_vs_true.png`.
 
 **MLP Regressor**
 
-![MLP Prediction](results/mlp_pred_vs_true.png)
+![MLP Prediction](results/pred_vs_true_mlp.png)
+
+
+MSE (Mean Squared Error) - Average of the squares of the prediction errors — how far off the predictions are from the real values. Lower is better.
+
+R² (R-squared Score) - Measures how well the model explains the variance in the data. 1.0 is perfect prediction.
 
 ---
 
+### Usage of trained model - Live Demo
 
+## Live Demo
+
+The mlp model is deployed using Gradio. Input sides `a` and `b` to get the predicted hypotenuse `c`.
+
+```bash
+python src/app.py
+```
+
+![Gradio UI Screenshot](results/gradio_ui.png)
+
+
+### Authors
+[Aleksandra Kraeva](https://github.com/sashakraeva)
+
+Acknowledgements
+- [Marita Georganta](https://www.linkedin.com/in/marita-georganta/) - Robotic Sensing Expert
 
