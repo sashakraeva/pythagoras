@@ -4,6 +4,11 @@ This project uses machine learning to predict the hypotenuse (c) of a right-angl
 
 ---
 
+## Software
+
+- Developed on: Windows · Python 3.10 · Visual Studio Code  
+- Make sure you're using a virtual environment before installing dependencies from requirements.txt.
+
 ## Objective
 
 ### 1 - Approximate the mathematical formula
